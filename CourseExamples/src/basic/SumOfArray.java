@@ -3,7 +3,8 @@ package basic;
 public class SumOfArray {
 
 	public static void main(String args[]) {
-		int[] values = {1,2,3,4,5,6,7,8};
+		
+		int[] values = {1,2,3,4,5,6};
 		System.out.println("Sum of numbers");
 		int sum1 = 0;
 		for (int i = 0; i < values.length; i++) {
