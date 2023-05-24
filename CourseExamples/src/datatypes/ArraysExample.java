@@ -20,10 +20,13 @@ public class ArraysExample {
 	        {
 	            System.out.println(strArr[i]);
 	        }
+	        System.out.println("");
+
 	        for (int i=0;i<strArr1.length;i++)
 	        {
 	            System.out.println(strArr1[i]);
 	        }
+	        /*
 	        System.out.println("Please enter a number - ");
 	        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	        int numberOfElements = Integer.parseInt(br.readLine());
@@ -38,7 +41,7 @@ public class ArraysExample {
 	        {
 	            System.out.println(strArr2[i]);
 	        }
-	       
+	       */
 	        //System.out.println("====================");
 	        //System.out.println("Printing array elements using Arrays.toString():");
 	        //System.out.println("====================");

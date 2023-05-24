@@ -6,9 +6,10 @@ public class HashMapExample {
 	public static void main(String args[]) {
 		HashMap<Integer, String> map = new HashMap<Integer, String>();// Creating HashMap
 		map.put(1, "Mango"); // Put elements in Map
-		map.put(2, "Apple");
-		map.put(1, "Banana");
-		map.put(4, "Banana");
+		map.put(4, "Apple");
+		map.put(3, "Orange");
+		map.put(500, "Banana");
+		map.put(501, "Kiwi");
 
 		System.out.println("Iterating Hashmap...");
 		for (Map.Entry m : map.entrySet()) {

@@ -3,7 +3,7 @@ package algorithms;
 public class Factorial {
 
 	public static void main(String[] args) {
-		int result = factorial(5);
+		int result = factorial(8);
 		System.out.println("Result: "+result);
 	}
 	

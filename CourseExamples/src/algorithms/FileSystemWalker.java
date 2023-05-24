@@ -7,7 +7,7 @@ public class FileSystemWalker {
 
 	public static void main(String args[]) {
 		FileSystemWalker fsw = new FileSystemWalker();
-		fsw.readFolder(new File("C:\\srh\\github"));
+		fsw.readFolder(new File("C:\\srh\\sdp-2023-05\\script"));
 		fsw.printEntries();
 	}
 	
