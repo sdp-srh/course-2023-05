@@ -25,9 +25,9 @@ public class SwingApplication extends JFrame implements ChangeListener {
 	
 	public SwingApplication() {
 		// call the constructor of superclass (JFrame) with a title
-		super("Project Example");
+		super("Project Example 2023");
 		// set the window size
-		this.setSize(300,200);
+		this.setSize(600,400);
 		// create the UI
 		this.createContentPanel();
 		// set the tabbed pane and show the window
