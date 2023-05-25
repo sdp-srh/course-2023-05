@@ -17,7 +17,7 @@ public class DBConnectionTest {
 	        conn.setAutoCommit(false);
 	        // create a statement
 	        Statement stmt = conn.createStatement();
-	        ResultSet rs = stmt.executeQuery("SELECT * FROM \"Person\"");
+	        ResultSet rs = stmt.executeQuery("SELECT * FROM \"Person\" WHERE \"lastname\" = 'Duck'");
 	        
 	        while (rs.next()) {
 	        	System.out.println("******** New Entry *********");

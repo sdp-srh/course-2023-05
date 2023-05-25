@@ -1,25 +1,24 @@
 package application;
 
+
+import java.io.IOException;
+
+import data.Person;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.SQLException;
-
-import data.Person;
 
 /**
  * Servlet implementation class CreatePerson
  */
-public class CreatePerson extends HttpServlet {
+public class CreatePersonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreatePerson() {
+    public CreatePersonServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
