@@ -1,4 +1,4 @@
-package libraries;
+package fileio;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.apache.commons.io.FileUtils;
 public class LibraryImportExample {
 
 	public static void main(String[] args) throws IOException {
-		File f = new File("C:\\srh\\example.txt");
+		File f = new File("res/example.txt");
 		String s = FileUtils.readFileToString(f, StandardCharsets.UTF_8);
 		System.out.println(s);
 	}

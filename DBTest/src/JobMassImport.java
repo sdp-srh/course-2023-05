@@ -1,12 +1,18 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.io.FileUtils;
 
-public class JobCRUDOperations {
+
+public class JobMassImport {
 	
 	
 	public static Connection conn = null;
@@ -37,26 +43,33 @@ public class JobCRUDOperations {
 	// description: text
 	
 	
+	public static void importJobsFromFile(String filename) throws IOException {
+		// read each line in the csv file
+		List<String> lines = FileUtils.readLines(new File(filename), StandardCharsets.UTF_8);
+		 for (String line: lines) {
+			 // now we need to split between name and description
+			 String[] values = line.split(";");
+			 insertJob(values[0], values[1]);
+		 }
+	}
+	
+	
 	// C: create operation
-	public static void createJobs() {
-		for (int i=0; i<3; i++) {
-			UUID uuid = UUID. randomUUID();
-			String id = uuid.toString();
-			String name = "Job "+i;
-			String description = "Job Description "+i;
-			try {
-				Statement stmt = getConnection().createStatement();
-				String sql = "INSERT INTO \"Job\" (id,name,description) "
-				+ "VALUES ('"+id+"', '"+name+"','"+description+"');";
-				System.out.println(sql);
-				stmt.executeUpdate(sql);
-				stmt.close();
-				getConnection().commit();
-			} catch (SQLException e) {
-				System.out.println("An Error occured during INSERT");
-				e.printStackTrace();
-			}			
-		}
+	public static void insertJob(String name, String description) {
+		UUID uuid = UUID. randomUUID();
+		String id = uuid.toString();
+		try {
+			Statement stmt = getConnection().createStatement();
+			String sql = "INSERT INTO \"Job\" (id,name,description) "
+			+ "VALUES ('"+id+"', '"+name+"','"+description+"');";
+			System.out.println(sql);
+			stmt.executeUpdate(sql);
+			stmt.close();
+			getConnection().commit();
+		} catch (SQLException e) {
+			System.out.println("An Error occured during INSERT");
+			e.printStackTrace();
+		}			
 	}
 	
 	// R: read operation
@@ -80,23 +93,6 @@ public class JobCRUDOperations {
 		}		
 	}
 	
-	// U: update operation
-	public static void updateJobs() {
-		// we update only the description of the first job, we identify 
-		try {
-			String newDescription = "NEW DESCRIPTION";
-			Statement stmt = getConnection().createStatement();
-			String sql = "UPDATE \"Job\" SET description='"+newDescription+"' WHERE name='Job 0'";
-			System.out.println(sql);
-			stmt.executeUpdate(sql);
-			stmt.close();
-			getConnection().commit();
-		} catch (SQLException e) {
-			System.out.println("An Error occured during UPDATE");
-			e.printStackTrace();
-		}	
-	}
-	
 	// D: delete operation
 	public static void deleteJobs() {
 		try {
@@ -112,33 +108,21 @@ public class JobCRUDOperations {
 	}
 	
 	public static void main(String args[]) {
-		// create some jobs
-		System.out.println("** Create the new job entries **");
-		createJobs();
-		
-		// read and print the jobs
-		System.out.println("");
-		System.out.println("** Read jobs **");
-		readJobs();
-		
-		
-		System.out.println("");
-		System.out.println("** Update description of Job 1 **");
-		// update the first job
-		updateJobs();
-		
-		
-
-		System.out.println("");
-		System.out.println("** Read jobs **");
-		// read and print the jobs
-		readJobs();
-		
-		// delete the jobs
+		// clean  db
 		System.out.println("");
 		System.out.println("** Delete all jobs **");
 		deleteJobs();
 		
+		// read and print the jobs
+		System.out.println("** Importing jobs **");
+		// relative filename inside the projects folder
+		String filename = "res/jobs.csv";
+		try {
+			importJobsFromFile(filename);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		// read and print the jobs
 		System.out.println("");
 		System.out.println("** Read jobs **");
