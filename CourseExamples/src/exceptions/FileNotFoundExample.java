@@ -17,10 +17,12 @@ public class FileNotFoundExample {
 	
 	public static void main(String args[]) {
 		try {
-			File file = new File("C://xyz.txt");
-			FileReader fr = new FileReader(file);
-		} catch (FileNotFoundException e) {
+			//File file = new File("C://xyz.txt");
+			//FileReader fr = new FileReader(file);
+			File file2 = readMyFile("C://xyz.txt");
+		} catch (MyFileNotFoundException e) {
 			e.printStackTrace();
+			e.getMessage();
 		}
 	}
 }

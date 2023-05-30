@@ -113,6 +113,8 @@ public class JobCRUDOperations {
 	}
 	
 	public static void main(String args[]) {
+		deleteJobs();
+		
 		// create some jobs
 		System.out.println("** Create the new job entries **");
 		createJobs();
@@ -145,5 +147,4 @@ public class JobCRUDOperations {
 		System.out.println("** Read jobs **");
 		readJobs();
 	}
-
 }
