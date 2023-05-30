@@ -86,6 +86,7 @@ public class JobCRUDOperations {
 		try {
 			String newDescription = "NEW DESCRIPTION";
 			Statement stmt = getConnection().createStatement();
+			// usually you update based on the id
 			String sql = "UPDATE \"Job\" SET description='"+newDescription+"' WHERE name='Job 0'";
 			System.out.println(sql);
 			stmt.executeUpdate(sql);
