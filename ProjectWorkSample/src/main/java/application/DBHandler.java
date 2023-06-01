@@ -23,8 +23,8 @@ public class DBHandler {
 	 * singleton to get the connection
 	 * @return the connection to the database
 	 */
-	public static Connection getConnection() {
-		if (conn == null) {
+	public static Connection getConnection() throws SQLException {
+		if (conn == null || conn.isClosed()) {
 		      try {
 		         Class.forName("org.postgresql.Driver");
 		         conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/projectworksample","postgres", "admin");
@@ -36,6 +36,8 @@ public class DBHandler {
 		      }
 		      System.out.println("Opened database successfully");
 		}
+		
+		
 		return conn;
 	}
 	
