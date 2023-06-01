@@ -5,25 +5,23 @@ import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.JToolBar;
 
-
-//see also: https://www.tutorialspoint.com/swingexamples
-public class SwingGridLayoutDemo {
+public class SwingToolbarDemo {
    private JFrame mainFrame;
    private JLabel headerLabel;
    private JLabel statusLabel;
    private JPanel controlPanel;
 
-   public SwingGridLayoutDemo(){
+   public SwingToolbarDemo(){
       prepareGUI();
    }
    public static void main(String[] args){
-      SwingGridLayoutDemo swingControlDemo = new SwingGridLayoutDemo();      
+      SwingToolbarDemo swingControlDemo = new SwingToolbarDemo();      
       swingControlDemo.showTableDemo();
    }
    private void prepareGUI(){
@@ -48,20 +46,18 @@ public class SwingGridLayoutDemo {
       mainFrame.add(statusLabel);
       mainFrame.setVisible(true);  
    }
-   
    private void showTableDemo(){
-      headerLabel.setText("Control in action: JTable"); 
+      headerLabel.setText("Control in action: JToolbar"); 
+      JToolBar toolBar = new JToolBar("Toolbar");
+      
+      JButton buttonA = new JButton("Alpha");
+      JButton buttonB = new JButton("Beta");
+      JButton buttonC = new JButton("Gamma");
+      toolBar.add(buttonA);
+      toolBar.add(buttonB);
+      toolBar.add(buttonC);     
 
-      String[] columnNames = {"Name", "Salary"};
-      Object[][] data = {
-         {"Ramesh Raman", 5000},
-         {"Shabbir Hussein", 7000}
-      };
-      JTable table = new JTable(data, columnNames);
-      JScrollPane scrollPane = new JScrollPane(table);
-      scrollPane.setSize(300, 300);
-      table.setFillsViewportHeight(true);
-      controlPanel.add(scrollPane);      
+      controlPanel.add(toolBar);
       mainFrame.setVisible(true);     
    } 
 }
