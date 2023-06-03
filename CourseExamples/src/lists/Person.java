@@ -30,7 +30,7 @@ public class Person implements Comparable<Person> {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	@Override
     public int compareTo(Person otherPerson) {
 		// this method implements to the compareable interface
@@ -46,8 +46,8 @@ public class Person implements Comparable<Person> {
     	else {
     		result = firstName.compareToIgnoreCase(otherPerson.getFirstName());
     	}
-    	*/
+    	 */
     	return result;
-    }
+	}
 	
 }
