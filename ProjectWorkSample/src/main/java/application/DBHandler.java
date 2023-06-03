@@ -25,19 +25,17 @@ public class DBHandler {
 	 */
 	public static Connection getConnection() throws SQLException {
 		if (conn == null || conn.isClosed()) {
-		      try {
-		         Class.forName("org.postgresql.Driver");
-		         conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/projectworksample","postgres", "admin");
-		         conn.setAutoCommit(false);
-		      } catch (Exception e) {
-		         e.printStackTrace();
-		         System.err.println(e.getClass().getName()+": "+e.getMessage());
-		         System.exit(0);
-		      }
-		      System.out.println("Opened database successfully");
+	      try {
+	         Class.forName("org.postgresql.Driver");
+	         conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/projectworksample","postgres", "admin");
+	         conn.setAutoCommit(false);
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	         System.err.println(e.getClass().getName()+": "+e.getMessage());
+	         System.exit(0);
+	      }
+	      System.out.println("Opened database successfully");
 		}
-		
-		
 		return conn;
 	}
 	
