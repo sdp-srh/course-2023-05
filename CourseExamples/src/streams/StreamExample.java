@@ -30,15 +30,17 @@ public class StreamExample {
 		System.out.println();
 		
 		// return the square of all values as a new list
-		List<Integer> squaredNumbers = numbers.stream().map(n -> n*n ).collect(Collectors.toList());
+		List<Integer> squaredNumbers = numbers.stream().map(n -> n*2 ).collect(Collectors.toList());
 		System.out.println("squaredNumbers");
 		System.out.println(squaredNumbers);
 		System.out.println();
+		
 		
 		// calculate to sum of all numbers
 		int sum = numbers.stream().reduce(0, (result, num) -> result + num);
 		System.out.println("Sum of all values is "+sum);
 
+		
 		// calculate the maximum value in the list
 		int max = numbers.stream().reduce(0, (result, num) -> result < num ? num : result);
 		System.out.println("Max value is "+max);	
@@ -46,6 +48,7 @@ public class StreamExample {
 		// calculate the minimum number of the list
 		int min = numbers.stream().reduce(highestValue, (result, num) -> result > num ? num : result);
 		System.out.println("Min value is "+min);
+		
 	}
 	
 	public static ArrayList<Integer> getRandomNumbers(int amount, int max) {

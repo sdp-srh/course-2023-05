@@ -10,7 +10,7 @@ const getPersons = () => {
 const run = () => {
     const persons = getPersons()
 
-    const youngPersons  = persons.filter(person => person.age <40)
+    const youngPersons  = persons.filter(person => person.age < 40)
     //console.log("young persons", youngPersons)
     console.log('young persons', youngPersons )
 

@@ -23,20 +23,22 @@ const add = (x,y) => {
 }
 
 run = () => {
+    
     console.log("assignment results")
     assignments()
     console.log("compare results")
     compares()
     console.log()
+    
     console.log("add results")
+    
     add(5,2)
     // important, you have to take care that the types fit
     add("5",2)
     add(5,"2")
     add("5","2")
-    
 }
 
 
-// calls our un function
+// calls our run function
 run()

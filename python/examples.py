@@ -1,5 +1,6 @@
 
 
+# creates a list of persons
 def create_list():
     list = [
         "Donald",
@@ -8,8 +9,6 @@ def create_list():
         "Dagobert"
     ]
     return list
-
-
 
 
 print('Hello World')
