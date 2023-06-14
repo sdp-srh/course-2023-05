@@ -12,9 +12,10 @@ public class CounterThread extends Thread {
 	
 	public void run() {
 		for (int i = 0; i < 3; i++) {
-			System.out.println(name+": "+(start+i));
+			//System.out.println(name+": "+(start+i));
 			callCounts.update(1);
 		}
+		System.out.println(name+" has finished");
 	}
 }
 
